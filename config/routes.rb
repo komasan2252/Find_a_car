@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users, path: "/", controllers: {
+    registrations: "public/users/registrations",
+    sessions: "public/users/sessions"
+  }
+  
   scope module: :public do
     root to: 'homes#top'
   end
