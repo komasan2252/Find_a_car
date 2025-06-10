@@ -39,3 +39,5 @@ class Public::UsersController < ApplicationController
     redirect_to root_path if current_user != @user
   end
 end
+
+

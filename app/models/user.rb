@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3, maximum: 30 }, on: :create
   validates :family_size, presence: true, numericality: { only_integer: true }, on: :update
   validates :monthly_mileage, presence: true, numericality: { only_integer: true }, on: :update
+
+  has_many :posts, dependent: :destroy
 end

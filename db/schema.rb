@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_06_09_060731) do
+ActiveRecord::Schema.define(version: 2025_06_10_023827) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
@@ -22,6 +22,24 @@ ActiveRecord::Schema.define(version: 2025_06_09_060731) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "maker_id", null: false
+    t.integer "genre_id", null: false
+    t.string "car_name", null: false
+    t.integer "year_name", default: 2, null: false
+    t.integer "year_number", null: false
+    t.text "good_point"
+    t.text "bad_point"
+    t.float "fuel_efficiency"
+    t.integer "riding_capacity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_posts_on_genre_id"
+    t.index ["maker_id"], name: "index_posts_on_maker_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,4 +57,7 @@ ActiveRecord::Schema.define(version: 2025_06_09_060731) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "posts", "genres"
+  add_foreign_key "posts", "makers"
+  add_foreign_key "posts", "users"
 end
