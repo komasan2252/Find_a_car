@@ -1,4 +1,15 @@
 <h1>Public::Users#show</h1>
 <p>Find me in app/views/public/users/show.html.erb</p>
 
-<%= @user.inspect %>
+<div class="row">
+  <div class="col-12 col-md-4 col-lg-3">
+    <h3><%= @user.name %></h3>
+    <!--TODO: "画像を入れたい"-->
+    <%= link_to "編集", edit_user_path(@user), class: "btn btn-warning btn-block" %>
+  </div>
+
+  <div class="col-12 col-md-8 col-lg-9">
+    <%= @user.inspect %>
+  </div>
+</div>
+

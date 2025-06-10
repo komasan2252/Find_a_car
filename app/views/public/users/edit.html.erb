@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+    <div class="card">
+      <div class="card-body">
+
+        <h2 class="text-center my-4">プロフィール編集</h2>
+
+        <%= form_with model: @user do |f| %>
+          <%= render "layouts/error_messages", model: f.object %>
+
+          <div class="mb-2">
+            <%= f.label :family_size %>
+            <%= f.number_field :family_size, class: "form-control", placeholder: "家族の人数を数字で入力" %>
+          </div>
+
+          <div class="mb-2">
+            <%= f.label :monthly_mileage %>
+            <%= f.number_field :monthly_mileage, class: "form-control", placeholder: "1ヶ月の走行距離を数字で入力" %>
+          </div>
+
+          <div class="my-4">
+            <%= f.submit "更新する", class: "btn btn-primary btn-block" %>
+          </div>
+        <% end %>
+
+        <%= link_to "戻る", user_path(@user), class: "btn btn-outline-secondary btn-block my-4" %>
+
+        <%= link_to "退会する場合はこちら", user_path(@user), method: :delete, data: { confirm: "本当に退会しますか" } %>
+      </div>
+    </div>
+  </div>
+</div>
