@@ -1,0 +1,53 @@
+<%= form_with model: [user, post] do |f| %>
+  <%= render "layouts/error_messages", model: f.object %>
+
+  <div class="mb-2">
+    <%= f.label :maker %>
+    <%= f.collection_select :maker_id, Maker.all, :id, :name, { include_blank: "--選択してください--" }, { class: "form-control" } %>
+  </div>
+
+  <div class="mb-2">
+    <%= f.label :genre %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: "--選択してください--" }, { class: "form-control" } %>
+  </div>
+
+  <div class="mb-2">
+    <%= f.label :car_name %>
+    <%= f.text_field :car_name, class: "form-control" %>
+  </div>
+
+  <div class="mb-2">
+    <%= f.label :year_name %>
+    <%= f.select :year_number, Post.year_names_i18n.invert, { include_blank: "--選択してください--"}, { class: "form-control" } %>
+  </div>
+
+  <div class="mb-2">
+    <%= f.label :year_number %>
+    <%= f.number_field :year_number, class: "form-control" %>
+  </div>
+
+  <div class="mb-2">
+    <%= f.label :good_point %>
+    <%= f.text_area :good_point, class: "form-control", rows: 5 %>
+  </div>
+
+  <div class="mb-2">
+    <%= f.label :bad_point %>
+    <%= f.text_area :bad_point, class: "form-control", rows: 5 %>
+  </div>
+
+  <div class="mb-2">
+    <%= f.label :fuel_efficiency %>
+    <%= f.number_field :fuel_efficiency, class: "form-control" %>
+  </div>
+
+  <div class="mb-2">
+    <%= f.label :riding_capacity %>
+    <%= f.number_field :riding_capacity, class: "form-control" %>
+  </div>
+
+  <div class="my-4">
+    <%= f.submit submit_message, class: "btn btn-primary btn-block" %>
+  </div>
+<% end %>
+

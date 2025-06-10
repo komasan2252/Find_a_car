@@ -5,11 +5,15 @@
   <div class="col-12 col-md-4 col-lg-3">
     <h3><%= @user.name %></h3>
     <!--TODO: "画像を入れたい"-->
-    <%= link_to "編集", edit_user_path(@user), class: "btn btn-warning btn-block" %>
+    <% if user_signed_in? && current_user == @user %>
+      <%= link_to "編集", edit_user_path(@user), class: "btn btn-warning btn-block" %>
+      
+      <%= link_to "新規投稿", new_user_post_path(@user), class: "btn btn-primary btn-block" %>
+    <% end %>
   </div>
 
   <div class="col-12 col-md-8 col-lg-9">
-    <%= @user.inspect %>
+    <%= render "public/posts/posts", posts: @posts %>
   </div>
 </div>
 

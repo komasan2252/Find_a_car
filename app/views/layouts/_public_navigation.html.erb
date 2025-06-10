@@ -7,9 +7,18 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link" %>
+          <%= link_to "about", "#", class: "nav-link" %>
         </li>
+          <li class="nav-item">
+            <%= link_to "Posts", posts_path, class: "nav-link" %>
+          </li>
         <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "NewPost", new_user_post_path(current_user), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Mypage", current_user, class: "nav-link" %>
+          </li>
           <li class="nav-item">
             <%= link_to "LogOut", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>

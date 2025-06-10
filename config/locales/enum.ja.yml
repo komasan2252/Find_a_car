@@ -1,0 +1,7 @@
+ja:
+  enums:
+    post:
+      year_name:
+        reiwa: 令和
+        heisei: 平成
+        showa: 昭和

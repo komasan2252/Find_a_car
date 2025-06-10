@@ -4,6 +4,7 @@ class Public::UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def show
+    @posts = @user.posts
   end
 
   def edit

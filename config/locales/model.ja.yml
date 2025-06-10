@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    attributes:
+      post:
+        user:	ユーザー
+        maker:	メーカー
+        genre:	ジャンル
+        car_name:	車名
+        year_name:	年号
+        year_number:	年式
+        good_point:	良い点
+        bad_point:	悪い点
+        fuel_efficiency:	燃費
+        riding_capacity:	常用定員
