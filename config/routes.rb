@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  
   devise_for :users, path: "/", controllers: {
     registrations: "public/users/registrations",
     sessions: "public/users/sessions"
+  }
+
+  devise_for :admins, path: "admin", controllers: {
+    sessions: "admin/admins/sessions"
   }
 
   scope module: :public do
@@ -14,5 +19,9 @@ Rails.application.routes.draw do
     end
     resources :comments, only: [:destroy]
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  namespace :admin do
+    root "users#index"
+    resources :users, only: [:index, :destroy]
+  end
 end
