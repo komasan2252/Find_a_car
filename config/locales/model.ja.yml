@@ -12,3 +12,6 @@ ja:
         bad_point:	悪い点
         fuel_efficiency:	燃費
         riding_capacity:	常用定員
+        star: 評価
+      comment:
+        body: コメント

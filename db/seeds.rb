@@ -37,3 +37,5 @@ end
     password: "password"
   )
 end
+
+Admin.create!(email: "admin@test.com", password: "password")
