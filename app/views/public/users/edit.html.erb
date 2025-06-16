@@ -18,6 +18,11 @@
             <%= f.number_field :monthly_mileage, class: "form-control", placeholder: "1ヶ月の走行距離を数字で入力" %>
           </div>
 
+          <div class="mb-2">
+            <%= f.label :profile_image %>
+            <%= f.file_field :profile_image, class: "form-control" %>
+          </div>
+
           <div class="my-4">
             <%= f.submit "更新する", class: "btn btn-primary btn-block" %>
           </div>

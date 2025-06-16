@@ -52,7 +52,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:maker_id, :genre_id, :car_name, :year_name, :year_number, :good_point, :bad_point, :fuel_efficiency, :riding_capacity, :star)
+    params.require(:post).permit(:maker_id, :genre_id, :car_name, :year_name, :year_number, :good_point, :bad_point, :fuel_efficiency, :riding_capacity, :star, :car_image)
   end
 
   def set_post

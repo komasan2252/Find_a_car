@@ -1,5 +1,10 @@
-<%= form_with model: [user, post] do |f| %>
+<%= form_with model: [user, post], local: true, html: {multipart: true } do |f| %>
   <%= render "layouts/error_messages", model: f.object %>
+
+  <div class="mb-2">
+    <%= f.label :car_image, "写真をアップロード" %>
+    <%= f.file_field :car_image, class: "form-control" %>
+  </div>
 
   <div class="mb-2">
     <%= f.label :maker %>

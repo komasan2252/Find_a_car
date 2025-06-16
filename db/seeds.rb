@@ -13,6 +13,10 @@ makers = %w(
   SUBARU
   SUZUKI
   DAIHATSU
+  HONDA
+  LEXUS
+  ISUZU
+  MITSUBISHI
 )
 
 makers.each do |name|
@@ -23,7 +27,14 @@ genres = %w(
   SUV
   セダン
   コンパクトカー
-  軽トラック
+  ミニバン/ワンボックス
+  軽自動車
+  ハッチバック
+  クーペ
+  オープンカー
+  スポーツカー
+  クロスオーバー
+  EV
 )
 
 genres.each do |name|

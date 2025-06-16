@@ -1,7 +1,14 @@
-<h1>レビュ詳細</h1>
+<h1>レビュー詳細</h1>
+
+
 
 <div class="row">
   <div class="col-lg-6">
+
+    <% if @post.car_image.attached? %>
+      <%= image_tag @post.car_image.variant(resize_to_limit: [400, 400]) %>
+    <% end %>
+
     <table class="table">
       <tbody>
         <tr>
