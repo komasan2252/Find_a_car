@@ -31,6 +31,18 @@
       <th>常用定員</th>
       <td><%= @post.riding_capacity %></td>
     </tr>
+    <tr>
+      <th>評価</th>
+      <td><div id="star"></div></td>
+    </tr>
+    <tr>
+      <th>いい点</th>
+      <td><%= simple_format @post.good_point %></td>
+    </tr>
+    <tr>
+      <th>悪い点</th>
+      <td><%= simple_format @post.bad_point %></td>
+    </tr>
   </tbody>
 </table>
       
@@ -41,3 +53,13 @@
 <% end %>
 
 <%= link_to "一覧へ戻る", posts_path, class: "btn btn-outline-secondary" %>
+
+<script>
+  $('#star').raty({
+    readOnly: true,
+    starOn: '<%= asset_path 'star-on.png' %>',
+    starOff: '<%= asset_path 'star-off.png' %>',
+    starHalf: '<%= asset_path 'star-half.png' %>',
+    score: <%= @post.star %>
+  });
+</script>

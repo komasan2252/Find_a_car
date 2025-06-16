@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_06_10_023827) do
+ActiveRecord::Schema.define(version: 2025_06_16_052140) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2025_06_10_023827) do
     t.integer "riding_capacity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "star", default: 0, null: false
     t.index ["genre_id"], name: "index_posts_on_genre_id"
     t.index ["maker_id"], name: "index_posts_on_maker_id"
     t.index ["user_id"], name: "index_posts_on_user_id"

@@ -46,8 +46,23 @@
     <%= f.number_field :riding_capacity, class: "form-control" %>
   </div>
 
+  <div class="mb-2">
+    <%= f.label :star %>
+    <div id="star"></div>
+  </div>
+
   <div class="my-4">
     <%= f.submit submit_message, class: "btn btn-primary btn-block" %>
   </div>
 <% end %>
+
+<script>
+  $('#star').raty({
+    scoreName: 'post[star]',
+    starOn: '<%= asset_path 'star-on.png' %>',
+    starOff: '<%= asset_path 'star-off.png' %>',
+    starHalf: '<%= asset_path 'star-half.png' %>',
+    score: <%= post.star %>
+  });
+</script>
 
