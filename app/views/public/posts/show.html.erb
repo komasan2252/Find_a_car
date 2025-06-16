@@ -58,17 +58,18 @@
     </table>
           
     <% if user_signed_in? && @post.user == current_user %> 
-      <%=link_to "編集", edit_user_post_path(@post.user, @post), class: "btn btn-warning" %>
+      <%=link_to edit_user_post_path(@post.user, @post), class: "btn btn-warning" do %><i class="fa-solid fa-gear"></i><% end %>
 
-      <%=link_to "削除", @post, method: :delete, data: { confirm: "本当に削除しますか" }, class: "btn btn-danger" %>
+      <%=link_to @post, method: :delete, data: { confirm: "本当に削除しますか" }, class: "btn btn-danger" do %><i class="fa-solid fa-trash"></i><% end %>
     <% end %>
 
     <%= link_to "一覧へ戻る", posts_path, class: "btn btn-outline-secondary" %>
+    
   </div>
 
   <div class="col-lg-6">
-    <%= render 'public/comments/comments', comments: @post.comments %>
     <%= render 'public/comments/form', post: @post, comment: @comment %>
+    <%= render 'public/comments/comments', comments: @post.comments %>
   </div>
 </div>
 

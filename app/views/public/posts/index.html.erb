@@ -1,3 +1,13 @@
+<div class="text-end">
+  <%= search_form_for @q, url: posts_path, method: :get, class: "mb-4 row g-3" do |f| %>
+    <div class="col-md-4">
+      <%= f.search_field :car_name_or_good_point_or_bad_point_or_fuel_efficiency_or_riding_capacity_or_year_name_or_year_number_or_maker_name_cont, placeholder: "キーワード検索", class: "form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.submit "検索", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
 <h1>レビュー一覧</h1>
 
 <%= render 'public/posts/posts', posts: @posts %>

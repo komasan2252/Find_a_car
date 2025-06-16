@@ -11,6 +11,7 @@ ja:
         current_sign_in_ip: 現在のログインIPアドレス
         email: Eメール
         name: 名前
+        profile_image: プロフィール画像
         family_size: 家族構成
         monthly_mileage: 平均月間走行距離
         encrypted_password: 暗号化パスワード

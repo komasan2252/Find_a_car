@@ -29,7 +29,7 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:family_size, :monthly_mileage)
+    params.require(:user).permit(:family_size, :monthly_mileage, :profile_image)
   end
 
   def set_user

@@ -1,12 +1,31 @@
 
 <div class="row">
   <div class="col-12 col-md-4 col-lg-3">
-    <h3><%= @user.name %></h3>
-    <!--TODO: "画像を入れたい"-->
-    <% if user_signed_in? && current_user == @user %>
-      <%= link_to "編集", edit_user_path(@user), class: "btn btn-warning btn-block" %>
 
-      <%= link_to "新規投稿", new_user_post_path(@user), class: "btn btn-primary btn-block" %>
+<h2>プロフィール</h2>
+  <%= image_tag @user.get_profile_image(100,100) %>
+
+
+<table class= "table w-100">
+  <tr>
+    <th>名前</th>
+    <td><strong><%= @user.name %></storng></td>
+  </tr>
+  <tr>
+    <th>家族構成</th>
+    <td><%= @user.family_size %>人</td>
+  </tr>
+  <tr>
+    <th>月平均走行距離</th>
+    <td><%= @user.monthly_mileage %>km</td>
+  </tr>
+</table>
+
+
+    <% if user_signed_in? && current_user == @user %>
+      <%= link_to edit_user_path(@user),class:"btn btn-outline-dark w-100" do %><i class="fa-solid fa-user-gear"></i>  <% end %>
+       
+      <%= link_to "新規投稿", new_user_post_path(@user), class: "btn btn-outline-primary btn-block w-100 mt-2" %>
     <% end %>
   </div>
 
