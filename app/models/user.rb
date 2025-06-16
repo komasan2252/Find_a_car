@@ -9,4 +9,7 @@ class User < ApplicationRecord
   validates :monthly_mileage, presence: true, numericality: { only_integer: true }, on: :update
 
   has_many :posts, dependent: :destroy
+
+  has_many :comments, dependent: :destroy
+  has_many :comment_posts, through: :comments, source: :post
 end

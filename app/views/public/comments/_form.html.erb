@@ -1,0 +1,12 @@
+<%= form_with model: [post, comment] do |f| %>
+  <%= render "layouts/error_messages", model: f.object %>
+
+  <div class="mb-2">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "form-control", rows: 5 %>
+  </div>
+
+  <div class="my-4">
+    <%= f.submit "コメントする", class: "btn btn-primary btn-block" %>
+  </div>
+<% end %>

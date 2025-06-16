@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update, :destroy] do
       resources :posts, only: [:new, :create, :edit, :update]
     end
-    resources :posts, only: [:index, :show, :destroy]
+    resources :posts, only: [:index, :show, :destroy] do
+      resources :comments, only: [:create]
+    end
+    resources :comments, only: [:destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

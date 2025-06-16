@@ -1,58 +1,69 @@
-<table class="table">
-  <tbody>
-    <tr>
-      <th>ユーザー</th>
-      <td><%= @post.user.name %></td>
-    </tr>
-    <tr>
-      <th>メーカー</th>
-      <td><%= @post.maker.name %></td>
-    </tr>
-    <tr>
-      <th>ジャンル</th>
-      <td><%= @post.genre.name %></td>
-    </tr>
-    <tr>
-      <th>車名</th>
-      <td><%= @post.car_name %></td>
-    </tr>
-    <tr>
-      <th>年式</th>
-      <td>
-        <%= @post.year_name_i18n %>
-        <%= @post.year_number %><%= @post.car_name %>年式
-      </td>
-    </tr>
-    <tr>
-      <th>燃費</th>
-      <td><%= @post.fuel_efficiency %></td>
-    </tr>
-    <tr>
-      <th>常用定員</th>
-      <td><%= @post.riding_capacity %></td>
-    </tr>
-    <tr>
-      <th>評価</th>
-      <td><div id="star"></div></td>
-    </tr>
-    <tr>
-      <th>いい点</th>
-      <td><%= simple_format @post.good_point %></td>
-    </tr>
-    <tr>
-      <th>悪い点</th>
-      <td><%= simple_format @post.bad_point %></td>
-    </tr>
-  </tbody>
-</table>
-      
-<% if user_signed_in? && @post.user == current_user %> 
-  <%=link_to "編集", edit_user_post_path(@post.user, @post), class: "btn btn-warning" %>
+<h1>レビュ詳細</h1>
 
-  <%=link_to "削除", @post, method: :delete, data: { confirm: "本当に削除しますか" }, class: "btn btn-danger" %>
-<% end %>
+<div class="row">
+  <div class="col-lg-6">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>ユーザー</th>
+          <td><%= @post.user.name %></td>
+        </tr>
+        <tr>
+          <th>メーカー</th>
+          <td><%= @post.maker.name %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @post.genre.name %></td>
+        </tr>
+        <tr>
+          <th>車名</th>
+          <td><%= @post.car_name %></td>
+        </tr>
+        <tr>
+          <th>年式</th>
+          <td>
+            <%= @post.year_name_i18n %>
+            <%= @post.year_number %><%= @post.car_name %>年式
+          </td>
+        </tr>
+        <tr>
+          <th>燃費</th>
+          <td><%= @post.fuel_efficiency %></td>
+        </tr>
+        <tr>
+          <th>常用定員</th>
+          <td><%= @post.riding_capacity %></td>
+        </tr>
+        <tr>
+          <th>評価</th>
+          <td><div id="star"></div></td>
+        </tr>
+        <tr>
+          <th>いい点</th>
+          <td><%= simple_format @post.good_point %></td>
+        </tr>
+        <tr>
+          <th>悪い点</th>
+          <td><%= simple_format @post.bad_point %></td>
+        </tr>
+      </tbody>
+    </table>
+          
+    <% if user_signed_in? && @post.user == current_user %> 
+      <%=link_to "編集", edit_user_post_path(@post.user, @post), class: "btn btn-warning" %>
 
-<%= link_to "一覧へ戻る", posts_path, class: "btn btn-outline-secondary" %>
+      <%=link_to "削除", @post, method: :delete, data: { confirm: "本当に削除しますか" }, class: "btn btn-danger" %>
+    <% end %>
+
+    <%= link_to "一覧へ戻る", posts_path, class: "btn btn-outline-secondary" %>
+  </div>
+
+  <div class="col-lg-6">
+    <%= render 'public/comments/comments', comments: @post.comments %>
+    <%= render 'public/comments/form', post: @post, comment: @comment %>
+  </div>
+</div>
 
 <script>
   $('#star').raty({

@@ -1,0 +1,23 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>コメント内容</th>
+      <th>投稿者</th>
+      <th>投稿日時</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% comments.each do |comment| %>
+      <tr>
+        <td>
+          <%= simple_format comment.body %>
+          <% if current_user == comment.user %>
+            <%= link_to "削除", comment, method: :delete %>
+          <% end %>
+        </td>
+        <td><%= comment.user.name %></td>
+        <td><%= l comment.created_at, format: :long %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

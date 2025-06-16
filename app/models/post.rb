@@ -12,4 +12,7 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :maker
   belongs_to :genre
+
+  has_many :comments, dependent: :destroy
+  has_many :comment_users, through: :comments, source: :user
 end
