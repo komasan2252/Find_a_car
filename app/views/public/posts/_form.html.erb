@@ -23,7 +23,7 @@
 
   <div class="mb-2">
     <%= f.label :year_name %>
-    <%= f.select :year_number, Post.year_names_i18n.invert, { include_blank: "--選択してください--"}, { class: "form-control" } %>
+    <%= f.select :year_name, Post.year_names_i18n.invert, { include_blank: "--選択してください--"}, { class: "form-control" } %>
   </div>
 
   <div class="mb-2">
