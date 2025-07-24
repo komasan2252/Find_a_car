@@ -5,6 +5,7 @@ class Public::CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.new(comment_params.merge({post: @post}))
+   
     if @comment.save
       flash[:notice] = "投稿しました"
       redirect_to @post
